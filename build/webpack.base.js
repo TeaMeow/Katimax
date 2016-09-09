@@ -42,8 +42,13 @@ module.exports =
                 exclude: [/node_modules/]
             },
             {
-                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                loader: 'url'
+                test  : /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url',
+                query :
+                {
+                  limit: 10000,
+                  name: 'img/[hash:8].[ext]'
+                }
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
