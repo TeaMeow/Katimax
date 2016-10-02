@@ -58,17 +58,21 @@ module.exports = merge(config,
         ({
             name    : 'vendor',
             filename: 'vendor.[chunkhash:8].js'
+        }),
+        
+        new webpack.LoaderOptionsPlugin
+        ({
+            vue:
+            {
+                loaders:
+                {
+                    css: ExtractTextPlugin.extract
+                    ({
+                        loader        : 'css-loader',
+                        fallbackLoader: 'vue-style-loader'
+                    })
+                }
+            }
         })
-    ],
-    vue:
-    {
-        loaders:
-        {
-            css: ExtractTextPlugin.extract
-            ({
-                loader        : 'css-loader',
-                fallbackLoader: 'vue-style-loader'
-            })
-        }
-    }
+    ]
 })
