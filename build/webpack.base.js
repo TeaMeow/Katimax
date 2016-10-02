@@ -26,7 +26,7 @@ module.exports =
     },
     resolve:
     {
-        extensions: ['', '.js', '.vue', '.css', '.json']
+        extensions: ['.js', '.vue', '.css', '.json']
     },
     module:
     {
@@ -64,24 +64,35 @@ module.exports =
             }
         ]
     },
-    babel:
-    {
-        babelrc: false,
-        presets: 
-        [
-            ['es2015', {modules: false}], 'stage-1'
-        ]
-    },
-    postcss,
-    vue:
-    {
-        postcss
-    },
     plugins:
     [
+        new webpack.LoaderOptionsPlugin
+        ({
+            options:
+            {
+                babel:
+                {
+                    babelrc: false,
+                    presets: 
+                    [
+                        ['es2015', {modules: false}], 'stage-1'
+                    ]
+                },
+                postcss,
+                vue:
+                {
+                    postcss
+                },
+                sassLoader:
+                {
+                    includePaths: [path.resolve(__dirname)]
+                },
+                context: '/'
+            }
+        }),
         new HtmlWebpackPlugin
         ({
-            title   : 'VuePack',
+            title   : 'TeaMeow',
             template: __dirname + '/index.html',
             filename: '../index.html'
         }),
