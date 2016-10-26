@@ -93,7 +93,7 @@ module.exports =
         }),
         new HtmlWebpackPlugin
         ({
-            title   : 'TeaMeow',
+            title   : 'Katimax',
             template: __dirname + '/index.html',
             filename: '../index.html'
         }),

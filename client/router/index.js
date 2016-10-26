@@ -8,7 +8,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: require('../views/Home')
+      component: require('../views/Main')
     }
   ]
 })
